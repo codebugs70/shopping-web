@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+ul,
+li {
+  list-style: none;
+}
+button {
+  cursor: pointer;
+  all: unset;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: break-word;
+}
+::selection {
+  /* background-color: #f62682; */
+}
+body {
+  min-height: 100vh;
+  color: white;
+  font-family: "Poppins";
+  background-color: #333;
+  /* ==== TYPE OF LINEAR BACKGROUND ==== */
+  /* background: linear-gradient(to right, #8360c3, #2ebf91); */
+  /* background-image: linear-gradient(to right, #141e30, #243b55); */
+  /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
+  /* background-image: linear-gradient(to right, #41295a, #2f0743); */
+  /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
+}
+
+/* ================================================= */
+/* CUSTOM SCROLL-BAR */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #333;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(-45deg, #333, #6a5af9, #d66efd);
+  border-radius: 100rem;
+}
+/* ================================================= */
