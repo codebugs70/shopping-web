@@ -14,6 +14,7 @@
   border-radius: 4px;
 }
 
+/* ======================= */
 .header {
   position: fixed;
   top: 0;
@@ -57,6 +58,7 @@
   color: #ff6651;
 }
 
+/* =========================== */
 main {
   padding-top: 120px;
   padding-bottom: 50px;
@@ -83,6 +85,7 @@ main .heading {
   margin-bottom: 20px;
 }
 
+/* =============================== */
 .product-list {
   margin-top: 30px;
   display: grid;
@@ -154,6 +157,7 @@ main .heading {
   opacity: 0.8;
 }
 
+/* =============================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -318,6 +322,102 @@ main .heading {
   color: #ff6651;
   font-weight: 700;
   font-size: 30px;
+}
+
+/* =========================== */
+.toast {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 1000;
+  color: black;
+  animation: SHOW_TOAST 0.5s linear forwards;
+}
+.toast.hide {
+  animation: HIDE_TOAST 0.5s linear forwards;
+}
+.toast-content {
+  position: relative;
+  width: 400px;
+  background-color: white;
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 4px solid #ff6651;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px 30px;
+}
+.toast-content::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #ff6651;
+  bottom: 0;
+  left: 0;
+  animation: progress 3s linear forwards;
+}
+@keyframes progress {
+  100% {
+    width: 0;
+  }
+}
+.toast-content .row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.toast-content .row i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 100rem;
+  color: white;
+  background-color: #ff6651;
+}
+.toast-content span {
+  font-size: 20px;
+  cursor: pointer;
+}
+.toast-content p {
+  user-select: none;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+/* keyframe animation */
+@keyframes SHOW_TOAST {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+@keyframes HIDE_TOAST {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(calc(100% + 30px));
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

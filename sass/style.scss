@@ -17,12 +17,17 @@ $colorHoverWhite: rgba(255, 255, 255, 0.5);
   margin-right: auto;
   padding: 0 20px;
 }
+
+// FILTER STYLES
 #categoryFilter {
   padding: 5px 0;
   width: 100%;
   max-width: 150px;
   border-radius: 4px;
 }
+
+/* ======================= */
+// HEADER STYLES
 .header {
   position: fixed;
   top: 0;
@@ -66,6 +71,8 @@ $colorHoverWhite: rgba(255, 255, 255, 0.5);
   }
 }
 
+/* =========================== */
+// MAIN CONTENT
 main {
   padding-top: 120px;
   padding-bottom: 50px;
@@ -92,6 +99,8 @@ main {
   }
 }
 
+/* =============================== */
+// ALL PRODUCTS
 .product-list {
   margin-top: 30px;
   display: grid;
@@ -164,6 +173,8 @@ main {
   }
 }
 
+/* =============================== */
+// MODAL STYLES
 .modal {
   position: fixed;
   inset: 0;
@@ -327,5 +338,103 @@ main {
       font-weight: 700;
       font-size: 30px;
     }
+  }
+}
+
+/* =========================== */
+// TOAST STYLES
+.toast {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  z-index: 1000;
+  color: black;
+  animation: SHOW_TOAST 0.5s linear forwards;
+  &.hide {
+    animation: HIDE_TOAST 0.5s linear forwards;
+  }
+  &-content {
+    position: relative;
+    width: 400px;
+    background-color: white;
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 4px solid $colorOrange;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 20px 30px;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background-color: $colorOrange;
+      bottom: 0;
+      left: 0;
+      animation: progress 3s linear forwards;
+    }
+    @keyframes progress {
+      100% {
+        width: 0;
+      }
+    }
+    .row {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 100rem;
+        color: white;
+        background-color: $colorOrange;
+      }
+    }
+    span {
+      font-size: 20px;
+      cursor: pointer;
+    }
+    p {
+      user-select: none;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+}
+
+/* keyframe animation */
+@keyframes SHOW_TOAST {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes HIDE_TOAST {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(calc(100% + 30px));
   }
 }

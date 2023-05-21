@@ -135,6 +135,8 @@ function calculateTotalAmount() {
 checkoutBtn.addEventListener("click", function () {
   cartStore = [];
   renderCartProduct();
+  modal.classList.remove("show");
+  renderToast(); // show toast
 });
 
 // HANDLE RENDER PRODUCT TO MODAL (hiển thị danh sách sản phẩm vào modal sau khi add)
@@ -181,6 +183,30 @@ function renderCartProduct() {
 cartToggle.addEventListener("click", handleOpenModal);
 function handleOpenModal() {
   modal.classList.add("show");
+}
+
+// REMOVE TOAST
+const removeToast = () => {
+  const toast = document.querySelector(".toast");
+  toast.classList.add("hide");
+  setTimeout(() => toast.parentNode.removeChild(toast), 500);
+};
+
+// RENDER TOAST
+function renderToast() {
+  const template = `<div class="toast">
+    <div class="toast-content">
+      <div class="row">
+        <i class="fa-solid fa-check"></i>
+        <p>This is success toast!</p>
+      </div>
+      <span onClick="handleCloseToast()" class="close-toast">
+        <i class="fa-solid fa-xmark"></i>
+      </span>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML("beforeend", template);
+  setTimeout(() => removeToast(), 3000);
 }
 
 // CLOSE MODAL (đóng modal khi click vào nút X hoặc overlay)
