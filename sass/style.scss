@@ -17,6 +17,12 @@ $colorHoverWhite: rgba(255, 255, 255, 0.5);
   margin-right: auto;
   padding: 0 20px;
 }
+#categoryFilter {
+  padding: 5px 0;
+  width: 100%;
+  max-width: 150px;
+  border-radius: 4px;
+}
 .header {
   position: fixed;
   top: 0;
@@ -63,6 +69,19 @@ $colorHoverWhite: rgba(255, 255, 255, 0.5);
 main {
   padding-top: 120px;
   padding-bottom: 50px;
+  .query-products {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    #searchInput {
+      width: 100%;
+      outline: none;
+      border: 3px solid $colorOrange;
+      max-width: 300px;
+      border-radius: 100rem;
+      padding: 12px 20px;
+    }
+  }
   .heading {
     font-size: 40px;
     font-weight: 600;

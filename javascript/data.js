@@ -61,7 +61,7 @@ const PRODUCTS = [
     img: "./img/img (24).png",
     price: 200,
     isFavorite: false,
-    category: "Coffee",
+    category: "coffee",
   },
   {
     id: 9,

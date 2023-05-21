@@ -7,6 +7,13 @@
   padding: 0 20px;
 }
 
+#categoryFilter {
+  padding: 5px 0;
+  width: 100%;
+  max-width: 150px;
+  border-radius: 4px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -53,6 +60,19 @@
 main {
   padding-top: 120px;
   padding-bottom: 50px;
+}
+main .query-products {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .query-products #searchInput {
+  width: 100%;
+  outline: none;
+  border: 3px solid #ff6651;
+  max-width: 300px;
+  border-radius: 100rem;
+  padding: 12px 20px;
 }
 main .heading {
   font-size: 40px;

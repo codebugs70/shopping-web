@@ -7,26 +7,52 @@ const cartList = document.querySelector(".cart-product-list");
 const totalPrice = document.querySelector(".total-price");
 const checkoutBtn = document.querySelector(".check-out");
 const cartCounter = document.querySelector(".cart-count");
+const filterDropdown = document.querySelector("#categoryFilter");
+const searchInput = document.getElementById("searchInput");
 
 let cartStore = [];
 
+// FILTER PRODUCTS (lọc sản phẩm)
+filterDropdown.addEventListener("change", handleFilterChange);
+function handleFilterChange() {
+  const selectedCategory = filterDropdown.value;
+  const searchQuery = searchInput.value.toLowerCase();
+  renderProducts(searchQuery, selectedCategory);
+}
+
+// SEARCH PRODUCTS (tìm kiếm sản phẩm)
+searchInput.addEventListener("input", handleSearch);
+function handleSearch() {
+  const searchQuery = searchInput.value.toLowerCase();
+  const selectedCategory = filterDropdown.value;
+  renderProducts(searchQuery, selectedCategory);
+}
+
 // HANDLE RENDER PROFUCTS (hiển thị danh sách các sản phẩm)
-function renderProducts() {
+function renderProducts(searchQuery = "", categoryFilter = "all") {
+  productList.innerHTML = "";
   PRODUCTS.forEach((item, index) => {
-    const template = `<li class="product-item">
-        <div class="product-item-image">
-          <img src="${item.img}" alt="" />
-        </div>
-        <h1 class="product-item-title">${item.name}</h1>
-        <div class="product-item-action">
-          <span class="product-item-price">${item.price}$</span>
-          <span class="heart-icon">
-            <i class="fa-solid fa-heart"></i>
+    const productName = item.name.toLowerCase();
+    const category = item.category;
+    if (
+      (productName.includes(searchQuery) || searchQuery === "") &&
+      (category === categoryFilter || categoryFilter === "all")
+    ) {
+      const template = `<li class="product-item">
+      <div class="product-item-image">
+      <img src="${item.img}" alt="" />
+      </div>
+      <h1 class="product-item-title">${item.name}</h1>
+      <div class="product-item-action">
+      <span class="product-item-price">${item.price}$</span>
+      <span class="heart-icon">
+      <i class="fa-solid fa-heart"></i>
           </span>
-        </div>
-        <button onClick="handleAddToCart(${index})" class="buy-btn">Add to cart</button>
-      </li>`;
-    productList.insertAdjacentHTML("beforeend", template);
+          </div>
+          <button onClick="handleAddToCart(${index})" class="buy-btn">Add to cart</button>
+            </li>`;
+      productList.insertAdjacentHTML("beforeend", template);
+    }
   });
 }
 renderProducts();
